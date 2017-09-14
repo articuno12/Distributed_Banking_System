@@ -53,17 +53,17 @@ public class BankImplementation implements BankInterface
 		}
 		public List<Transaction> transaction_history(String account, Date start,Date end)
 		{
-			start.setHours(0) ;
-			start.setMinutes(0) ;
-			start.setSeconds(0) ;
-			end.setHours(23) ;
-			end.setMinutes(59) ;
-			end.setSeconds(59) ;
-			return bankdata.get(account).transaction_details(start,end);
+				start.setHours(0) ;
+				start.setMinutes(0) ;
+				start.setSeconds(0) ;
+				end.setHours(23) ;
+				end.setMinutes(59) ;
+				end.setSeconds(59) ;
+				return bankdata.get(account).transaction_details(start,end);
 		}
 		public ArrayList<Transaction> transaction_history(String account)
 		{
-			ArrayList<Transaction> t = bankdata.get(account).gettransaction();
-			return t;
+				ArrayList<Transaction> t = bankdata.get(account).gettransaction();
+				return t;
 		}
 }

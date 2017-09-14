@@ -52,25 +52,25 @@ public class Account
 
 		public List<Transaction> transaction_details(Date date1, Date date2)
 		{
-			Comparator<Transaction> construct = new Comparator<Transaction>()
-			{
-				public Integer compare(Transaction t1, Transaction t2)
+				Comparator<Transaction> construct = new Comparator<Transaction>()
 				{
-					if(t1.getDate().before(t2.getDate())) return -1;
-	                if(t1.getDate().after(t2.getDate())) return 1;
-	                else return 0 ;
+						public Integer compare(Transaction t1, Transaction t2)
+						{
+								if(t1.getDate().before(t2.getDate())) return -1;
+								if(t1.getDate().after(t2.getDate())) return 1;
+								else return 0 ;
+						}
 				}
-			}
-			Integer l = Collections.binarySearch(transactions,new Transaction(0,date1),construct);
-			Integer r = Collections.binarySearch(transactions,new Transaction(0,date2),construct);
-			if(l<0) l = -1*l - 1;
-	        if(r<0) r = -1*r - 1;
-			List<Transaction> t = new ArrayList<Transaction>();
-			for(int i=l;i<r;++i) t.add(transactions.get(i));
-			return t;
+				Integer l = Collections.binarySearch(transactions,new Transaction(0,date1),construct);
+				Integer r = Collections.binarySearch(transactions,new Transaction(0,date2),construct);
+				if(l<0) l = -1*l - 1;
+				if(r<0) r = -1*r - 1;
+				List<Transaction> t = new ArrayList<Transaction>();
+				for(int i=l;i<r;++i) t.add(transactions.get(i));
+				return t;
 		}
 		public ArrayList<Transaction> gettransaction()
 		{
-			return transactions;
+				return transactions;
 		}
 }
